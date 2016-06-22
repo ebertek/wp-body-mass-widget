@@ -1,0 +1,71 @@
+  /*Body Mass Widget css */
+
+  /*Edit the id's and class's with your own css*/
+
+  /*Main*/
+  #calculate_bodymass {
+		  width: auto;
+		  display: block;
+                  padding: 0 0 4px;
+  }
+
+  /*Table*/
+  #calculate_bodymass table {
+		  border-collapse: separate;
+		  border-spacing:3px;
+                  border: 0;
+                  margin: 0 0 12px;
+                  width: 100%;
+                 
+  }
+
+  #weight, #height {
+		  width:73%;
+  }
+
+  /*Title*/
+  #calculate_bodymass h2 {
+	  margin-top: 10px;
+	  margin-bottom: 10px;
+	  text-align: center;
+	  font-size: 14px;
+	  font-weight: bold;
+  }
+
+  /*Calculate and Submit*/
+  #reset, #submit {
+	   text-align:center;
+	   margin-top: 5px;
+	   display:inline-block;
+	  
+	   margin-left: 6px;
+	-webkit-border-radius: 4;
+  -moz-border-radius: 4;
+  border-radius: 4px;
+  padding: 5px 10px 5px 10px;
+  text-decoration: none;
+            cursor:pointer;
+  }
+
+  #reset, #submit: hover {
+	  opacity: 3;
+  }
+
+  /*Credits*/
+  .poweredby {
+	  margin-top: 13px;
+	  margin-left: 6px;
+	  font-size:12px;
+  }
+
+  /*Result*/
+  #calculate_bodymass p {
+		  text-align: center;
+		  line-height:50%;
+  }
+
+  /*Result*/
+  #bm_result {
+	  margin-top: 13px;
+	  margin-bottom: 5px;
+	}  
