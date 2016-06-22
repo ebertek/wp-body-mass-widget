@@ -37,8 +37,8 @@ add_action( 'wp_enqueue_scripts', 'bodycalculater_register_plugin_styles' );
 
 //Register style sheet.
 function bodycalculater_register_plugin_styles() {
-  wp_register_style( 'body-mass-widget', plugins_url( '/body-mass-widget/css/body-mass-widget.css' ) );
-  wp_enqueue_style( 'body-mass-widget' );
+  wp_register_style( 'wp-body-mass-widget', plugins_url( '/wp-body-mass-widget/css/wp-body-mass-widget.css' ) );
+  wp_enqueue_style( 'wp-body-mass-widget' );
 }
 
 // Body Mass Widget Class.
