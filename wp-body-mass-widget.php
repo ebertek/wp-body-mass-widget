@@ -1,13 +1,16 @@
 <?php
 /*
 Plugin Name: Body Mass Widget
-Plugin URI: https://biombodigital.com
-Description: Adds a widget that shows a BMI calculator. You can change all the labels and it is totally free.
-Author: Salabert + Ebert
-Version: 1.2
-Author URI: http://biombodigital.com
+Plugin URI: https://github.com/ebertek/wp-body-mass-widget
+Description: Adds a widget that shows a BMI calculator.
+Author: ebertek
+Version: 1.3
+Author URI: https://ebertek.com
+Text Domain: wp-body-mass-widget
+Domain Path: /languages
 
-  Copyright 2014 Michelle Salabert (michelle@biombodigital.com)
+  Original work Copyright 2014 Michelle Salabert (michelle@biombodigital.com)
+  Modified work Copyright 2016 @ebertek
   
   This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -22,8 +25,6 @@ Author URI: http://biombodigital.com
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-  Modified 2016 @ebertek
-
 */
 
   // Register style sheet.
@@ -33,33 +34,27 @@ Author URI: http://biombodigital.com
     wp_enqueue_style('wp-body-mass-widget');
   }
 
+  // i18n
+  add_action('plugins_loaded', 'bodycalculator_load_textdomain');
+  function bodycalculator_load_textdomain() {
+    $domain = 'wp-body-mass-widget';
+    $locale = apply_filters('plugin_locale', get_locale(), $domain);
+    load_textdomain($domain, WP_LANG_DIR.'/'.$domain.'/'.$domain.'-'.$locale.'.mo');
+    load_plugin_textdomain($domain, false, plugin_basename( dirname( __FILE__ ) ) . '/languages');
+  }
+
   // Body Mass Widget Class.
   class BodyMass extends WP_Widget {
 
     function __construct() {
       $title ='Body Mass Calculator';
-      $widget_ops = array('description' => 'A BMI calculator widget by michellesalabert.com');
+      $widget_ops = array('description' => 'A BMI calculator widget');
       parent::__construct(false, $title, $widget_ops);
     }
 
     // Declare all labels that appear on widget admin
     function widget($args, $instance) {
       extract($args);
-
-      $calculate = $instance['calculate'];
-      $yourbm    = $instance['yourbm'];
-      $error     = $instance['error'];
-      $weight    = $instance ['weight'];
-      $height    = $instance ['height'];
-      $bmikat1   = $instance ['bmikat1'];
-      $bmikat2   = $instance ['bmikat2'];
-      $bmikat3   = $instance ['bmikat3'];
-      $bmikat4   = $instance ['bmikat4'];
-      $bmikat5   = $instance ['bmikat5'];
-      $bmikat6   = $instance ['bmikat6'];
-      $bmikat7   = $instance ['bmikat7'];
-      $bmikat8   = $instance ['bmikat8'];
-      $reset     = $instance['reset'];
 
       echo $before_widget;
       if (!empty($instance['title'])) {
@@ -68,20 +63,19 @@ Author URI: http://biombodigital.com
       }
       ?>
 
-      <!--Calculate table -->
+      <!-- WP BMI Calculator -->
       <div id="calculate_bodymass">
         <table>
-          <tr><td><label for="weight"><?php echo $weight; ?>:</label></td><td><input type="text" name="weight" id="weight" /><span> kg</span></td></tr>
-          <tr><td><label for="height"><?php echo $height; ?>:</label></td><td><input type="text" name="height" id="height" /><span> cm</span></td></tr>
+          <tr><td><label for="weight"><?php _e('Weight', 'wp-body-mass-widget'); ?>:</label></td><td><input type="text" name="weight" id="weight" /><span> kg</span></td></tr>
+          <tr><td><label for="height"><?php _e('Height', 'wp-body-mass-widget'); ?>:</label></td><td><input type="text" name="height" id="height" /><span> cm</span></td></tr>
         </table>
         <div style="margin: 0 auto; width: 200px;">
-          <input id="submit" onclick="bodymass_calculate()" type="button" value="<?php echo $calculate; ?>" />
-          <input id="reset" onclick="resetform()" type="button" value="<?php echo $reset; ?>" />
+          <input id="submit" onclick="bodymass_calculate()" type="button" value="<?php _e('Calculate', 'wp-body-mass-widget'); ?>" />
+          <input id="reset" onclick="resetform()" type="button" value="<?php _e('Reset', 'wp-body-mass-widget'); ?>" />
         </div>
         <div id="bm_result"></div>
       </div>
 
-      <!--BMI Calculate JavaScript code-->
       <script type="text/javascript">
         var bm_result = document.getElementById('bm_result');
         function bodymass_calculate() {
@@ -90,26 +84,26 @@ Author URI: http://biombodigital.com
           var bm     = weight / (height * height);
           var msg    = '';
           if(bm < 15) {
-            msg = '<?php echo $bmikat1; ?>';
+            msg = '<?php _e('Very severely underweight', 'wp-body-mass-widget'); ?>';
           } else if (bm >= 15 && bm < 16) {
-            msg = '<?php echo $bmikat2; ?>';
+            msg = '<?php _e('Severely underweight', 'wp-body-mass-widget'); ?>';
           } else if (bm >= 16 && bm < 18.5) {
-            msg = '<?php echo $bmikat3; ?>';
+            msg = '<?php  _e('Underweight', 'wp-body-mass-widget'); ?>';
           } else if (bm >= 18.5 && bm < 25) {
-            msg = '<?php echo $bmikat4; ?>';
+            msg = '<?php _e('Normal (healthy weight)', 'wp-body-mass-widget'); ?>';
           } else if (bm >= 25 && bm < 30) {
-            msg = '<?php echo $bmikat5; ?>';
+            msg = '<?php _e('Overweight', 'wp-body-mass-widget'); ?>';
           } else if (bm >= 30 && bm < 35) {
-            msg = '<?php echo $bmikat6; ?>';
+            msg = '<?php _e('Obese Class I (Moderately obese)', 'wp-body-mass-widget'); ?>';
           } else if (bm >= 35 && bm < 40) {
-            msg = '<?php echo $bmikat7; ?>';
+            msg = '<?php _e('Obese Class II (Severely obese)', 'wp-body-mass-widget'); ?>';
           } else if (bm >= 40) {
-            msg = '<?php echo $bmikat8; ?>';
+            msg = '<?php _e('Obese Class III (Very severely obese)', 'wp-body-mass-widget'); ?>';
           }
           if (weight > 0 && height > 0 && weight !== null && height !== null && weight < 635 && height < 272) {
-            bm_result.innerHTML = '<p><?php echo $yourbm; ?> <strong>' + bm.toFixed(2) + '</strong></p><p><strong>' + msg + '</strong></p>';
+            bm_result.innerHTML = '<p><?php _e('Your BMI:', 'wp-body-mass-widget'); ?> <strong>' + bm.toFixed(2) + '</strong></p><p><strong>' + msg + '</strong></p>';
           } else {
-            bm_result.innerHTML = '<p><?php echo $error; ?></p>';
+            bm_result.innerHTML = '<p><?php _e('Please enter valid information!', 'wp-body-mass-widget'); ?></p>';
           }
         }
 
@@ -119,6 +113,7 @@ Author URI: http://biombodigital.com
           bm_result.innerHTML = '<p>';
         }
       </script>
+      <!-- WP BMI Calculator -->
 
       <?php echo $after_widget;
     }  // function widget
@@ -126,126 +121,31 @@ Author URI: http://biombodigital.com
     // Update the options
     function update($new_instance, $old_instance) {
       $instance = $old_instance;
-
       $instance['title']     = strip_tags($new_instance['title']);
-      $instance['calculate'] = $new_instance['calculate'];
-      $instance['yourbm']    = $new_instance['yourbm'];
-      $instance['bmikat1']   = $new_instance['bmikat1'];
-      $instance['bmikat2']   = $new_instance['bmikat2'];
-      $instance['bmikat3']   = $new_instance['bmikat3'];
-      $instance['bmikat4']   = $new_instance['bmikat4'];
-      $instance['bmikat5']   = $new_instance['bmikat5'];
-      $instance['bmikat6']   = $new_instance['bmikat6'];
-      $instance['bmikat7']   = $new_instance['bmikat7'];
-      $instance['bmikat8']   = $new_instance['bmikat8'];
-      $instance['height']    = $new_instance['height'];
-      $instance['weight']    = $new_instance['weight'];
-      $instance['error']     = $new_instance['error'];
-      $instance['reset']     = $new_instance['reset'];
-
       return $instance;
     }
 
-  //The widget configuration form back end.
+    //The widget configuration form back end.
     function form($instance) {
 
       $defaults = array(
         'title'     => 'Body Mass Calculator',
-        'calculate' => 'Calculate',
-        'reset'     => 'Reset',
-        'yourbm'    => 'Your BMI:',
-        'bmikat1'   => 'Very severely underweight',
-        'bmikat2'   => 'Severely underweight',
-        'bmikat3'   => 'Underweight',
-        'bmikat4'   => 'Normal (healthy weight)',
-        'bmikat5'   => 'Overweight',
-        'bmikat6'   => 'Obese Class I (Moderately obese)',
-        'bmikat7'   => 'Obese Class II (Severely obese)',
-        'bmikat8'   => 'Obese Class III (Very severely obese)',
-        'weight'    => 'Weight',
-        'height'    => 'Height',
-        'error'     => 'Please enter valid information!',
       );
       $instance = wp_parse_args((array) $instance, $defaults); ?>
 
       <p>
-        <label for="<?php echo $this->get_field_id('title'); ?>">Title:<br/>
+        <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'wp-body-mass-widget'); ?><br/>
           <input id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" value="<?php echo $instance['title']; ?>" class=" " type="text" /></label>
-      </p>
-
-      <p>
-        <label for="<?php echo $this->get_field_id('yourbm'); ?>">Your BMI</label><br/>
-          <input id="<?php echo $this->get_field_id('yourbm'); ?>" name="<?php echo $this->get_field_name('yourbm'); ?>" value="<?php echo $instance['yourbm']; ?>" class="widefat" type="text" />
-      </p>
-
-      <p>
-        <label for="<?php echo $this->get_field_id('bmikat1'); ?>">Very severely underweight</label><br/>
-          <input id="<?php echo $this->get_field_id('bmikat1'); ?>" name="<?php echo $this->get_field_name('bmikat1'); ?>" value="<?php echo $instance['bmikat1']; ?>" class="widefat" type="text" />
-      </p>
-
-      <p>
-        <label for="<?php echo $this->get_field_id('bmikat2'); ?>">Severely underweight</label><br/>
-          <input id="<?php echo $this->get_field_id('bmikat2'); ?>" name="<?php echo $this->get_field_name('bmikat2'); ?>" value="<?php echo $instance['bmikat2']; ?>" class="widefat" type="text" />
-      </p>
-
-      <p>
-        <label for="<?php echo $this->get_field_id('bmikat3'); ?>">Underweight</label><br/>
-          <input id="<?php echo $this->get_field_id('bmikat3'); ?>" name="<?php echo $this->get_field_name('bmikat3'); ?>" value="<?php echo $instance['bmikat3']; ?>" class="widefat" type="text" />
-      </p>
-
-      <p>
-        <label for="<?php echo $this->get_field_id('bmikat4'); ?>">Normal</label><br/>
-          <input id="<?php echo $this->get_field_id('bmikat4'); ?>" name="<?php echo $this->get_field_name('bmikat4'); ?>" value="<?php echo $instance['bmikat4']; ?>" class="widefat" type="text" />
-      </p>
-
-      <p>
-        <label for="<?php echo $this->get_field_id('bmikat5'); ?>">Overweight</label><br/>
-          <input id="<?php echo $this->get_field_id('bmikat5'); ?>" name="<?php echo $this->get_field_name('bmikat5'); ?>" value="<?php echo $instance['bmikat5']; ?>" class="widefat" type="text" />
-      </p>
-
-      <p>
-        <label for="<?php echo $this->get_field_id('bmikat6'); ?>">Moderately overweight</label><br/>
-          <input id="<?php echo $this->get_field_id('bmikat6'); ?>" name="<?php echo $this->get_field_name('bmikat6'); ?>" value="<?php echo $instance['bmikat6']; ?>" class="widefat" type="text" />
-      </p>
-
-      <p>
-        <label for="<?php echo $this->get_field_id('bmikat7'); ?>">Severely overweight</label><br/>
-          <input id="<?php echo $this->get_field_id('bmikat7'); ?>" name="<?php echo $this->get_field_name('bmikat7'); ?>" value="<?php echo $instance['bmikat7']; ?>" class="widefat" type="text" />
-      </p>
-
-      <p>
-        <label for="<?php echo $this->get_field_id('bmikat8'); ?>">Very severely overweight</label><br/>
-          <input id="<?php echo $this->get_field_id('bmikat8'); ?>" name="<?php echo $this->get_field_name('bmikat8'); ?>" value="<?php echo $instance['bmikat8']; ?>" class="widefat" type="text" />
-      </p>
-
-      <p>
-        <label for="<?php echo $this->get_field_id('weight'); ?>">Weight</label><br/>
-          <input id="<?php echo $this->get_field_id('weight'); ?>" name="<?php echo $this->get_field_name('weight'); ?>" value="<?php echo $instance['weight']; ?>" class="widefat" type="text" />
-      </p>
-
-      <p>
-        <label for="<?php echo $this->get_field_id('height'); ?>">Height</label><br/>
-          <input id="<?php echo $this->get_field_id('height'); ?>" name="<?php echo $this->get_field_name('height'); ?>" value="<?php echo $instance['height']; ?>" class="widefat" type="text" />
-      </p>
-
-      <p>
-        <label for="<?php echo $this->get_field_id('error'); ?>">Error!</label><br/>
-          <input id="<?php echo $this->get_field_id('error'); ?>" name="<?php echo $this->get_field_name('error'); ?>" value="<?php echo $instance['error']; ?>" class="widefat" type="text" />
-      </p>
-
-      <p>
-        <label for="<?php echo $this->get_field_id('calculate'); ?>">Calculate your body mass<br/>
-          <input id="<?php echo $this->get_field_id('calculate'); ?>" name="<?php echo $this->get_field_name('calculate'); ?>" value="<?php echo $instance['calculate']; ?>" class="widefat" type="text" /></label>
-      </p>
-
-      <p>
-        <label for="<?php echo $this->get_field_id('reset'); ?>">Reset<br/>
-          <input id="<?php echo $this->get_field_id('reset'); ?>" name="<?php echo $this->get_field_name('reset'); ?>" value="<?php echo $instance['reset']; ?>" class="widefat" type="text" /></label>
       </p>
 
     <?php
     }  // function form
   }    // class BodyMass
-
+  function widget_textdomain() {
+    $domain = $this->plugin_slug;
+    $locale = apply_filters('plugin_locale', get_locale(), $domain);
+    load_textdomain($domain, WP_LANG_DIR . '/' . $domain . '/' . $domain . '-' . $locale . '.mo');
+    load_plugin_textdomain($domain, FALSE, dirname( plugin_basename( __FILE__ ) ) . '/languages/');
+  }
   add_action('widgets_init', create_function('', 'return register_widget("BodyMass");'));
 ?>

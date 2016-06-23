@@ -1,0 +1,77 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: wp-body-mass-widget\n"
+"POT-Creation-Date: 2016-06-23 18:38+0200\n"
+"PO-Revision-Date: 2016-06-23 18:38+0200\n"
+"Last-Translator: \n"
+"Language-Team: @ebertek <ebertek@gmail.com>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.8\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n;_x;_ex;_nx\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: wp-body-mass-widget.php:66
+msgid "Weight"
+msgstr "Testtömeg"
+
+#: wp-body-mass-widget.php:67
+msgid "Height"
+msgstr "Testmagasság"
+
+#: wp-body-mass-widget.php:70
+msgid "Calculate"
+msgstr "Számolás"
+
+#: wp-body-mass-widget.php:71
+msgid "Reset"
+msgstr "Visszaállítás"
+
+#: wp-body-mass-widget.php:84
+msgid "Very severely underweight"
+msgstr "Súlyos soványság"
+
+#: wp-body-mass-widget.php:86
+msgid "Severely underweight"
+msgstr "Mérsékelt soványság"
+
+#: wp-body-mass-widget.php:88
+msgid "Underweight"
+msgstr "Enyhe soványság"
+
+#: wp-body-mass-widget.php:90
+msgid "Normal (healthy weight)"
+msgstr "Normális testsúly"
+
+#: wp-body-mass-widget.php:92
+msgid "Overweight"
+msgstr "Túlsúlyos"
+
+#: wp-body-mass-widget.php:94
+msgid "Obese Class I (Moderately obese)"
+msgstr "I. fokú elhízás"
+
+#: wp-body-mass-widget.php:96
+msgid "Obese Class II (Severely obese)"
+msgstr "II. fokú elhízás"
+
+#: wp-body-mass-widget.php:98
+msgid "Obese Class III (Very severely obese)"
+msgstr "III. fokú (súlyos) elhízás"
+
+#: wp-body-mass-widget.php:101
+msgid "Your BMI:"
+msgstr "A te BMI-d:"
+
+#: wp-body-mass-widget.php:103
+msgid "Please enter valid information!"
+msgstr "Hibás adat!"
+
+#: wp-body-mass-widget.php:134
+msgid "Title:"
+msgstr "Cím:"
