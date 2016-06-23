@@ -1,13 +1,15 @@
 <?php
 /*
-Plugin Name: Body Mass Widget
-Plugin URI: https://github.com/ebertek/wp-body-mass-widget
-Description: Adds a widget that shows a BMI calculator.
-Author: ebertek
-Version: 1.3
-Author URI: https://ebertek.com
-Text Domain: wp-body-mass-widget
-Domain Path: /languages
+Plugin Name:       WP Body Mass Widget
+Plugin URI:        https://github.com/ebertek/wp-body-mass-widget
+GitHub Plugin URI: ebertek/wp-body-mass-widget
+GitHub Branch:     master
+Description:       Adds a widget that shows a BMI calculator.
+Version:           1.3
+Author:            ebertek
+Author URI:        https://ebertek.com
+Text Domain:       wp-body-mass-widget
+Domain Path:       /languages
 
   Original work Copyright 2014 Michelle Salabert (michelle@biombodigital.com)
   Modified work Copyright 2016 @ebertek
