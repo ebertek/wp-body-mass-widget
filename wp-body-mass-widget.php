@@ -46,7 +46,6 @@ Author URI: http://biombodigital.com
     function widget($args, $instance) {
       extract($args);
 
-      $border    = $instance['border'];
       $calculate = $instance['calculate'];
       $yourbm    = $instance['yourbm'];
       $error     = $instance['error'];
@@ -69,17 +68,11 @@ Author URI: http://biombodigital.com
       }
       ?>
 
-      <style type="text/css">
-        #calculate_bodymass {
-          border: 1px solid <?php echo $border; ?>;
-        }
-      </style>
-
       <!--Calculate table -->
       <div id="calculate_bodymass">
         <table>
-          <tr><td><label for="weight"><?php echo $weight; ?>:</label></td><td><input type="text" name="weight" id="weight" /><span>kg</span></td></tr>
-          <tr><td><label for="height"><?php echo $height; ?>:</label></td><td><input type="text" name="height" id="height" /><span>cm</span></td></tr>
+          <tr><td><label for="weight"><?php echo $weight; ?>:</label></td><td><input type="text" name="weight" id="weight" /><span> kg</span></td></tr>
+          <tr><td><label for="height"><?php echo $height; ?>:</label></td><td><input type="text" name="height" id="height" /><span> cm</span></td></tr>
         </table>
         <div style="margin: 0 auto; width: 200px;">
           <input id="submit" onclick="bodymass_calculate()" type="button" value="<?php echo $calculate; ?>" />
@@ -135,7 +128,6 @@ Author URI: http://biombodigital.com
       $instance = $old_instance;
 
       $instance['title']     = strip_tags($new_instance['title']);
-      $instance['border']    = $new_instance['border'];
       $instance['calculate'] = $new_instance['calculate'];
       $instance['yourbm']    = $new_instance['yourbm'];
       $instance['bmikat1']   = $new_instance['bmikat1'];
@@ -173,18 +165,12 @@ Author URI: http://biombodigital.com
         'weight'    => 'Weight',
         'height'    => 'Height',
         'error'     => 'Please enter valid information!',
-        'border'    => '#c5c8c4'
       );
       $instance = wp_parse_args((array) $instance, $defaults); ?>
 
       <p>
         <label for="<?php echo $this->get_field_id('title'); ?>">Title:<br/>
           <input id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" value="<?php echo $instance['title']; ?>" class=" " type="text" /></label>
-      </p>
-
-      <p>
-        <label for="<?php echo $this->get_field_id('border'); ?>">Border color</label><br/>
-          <input id="<?php echo $this->get_field_id('border'); ?>" name="<?php echo $this->get_field_name('border'); ?>" value="<?php echo $instance['border']; ?>" class="widefat" type="text" />
       </p>
 
       <p>
