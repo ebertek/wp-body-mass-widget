@@ -4,7 +4,7 @@ Plugin Name: Body Mass Widget
 Plugin URI: https://biombodigital.com
 Description: Adds a widget that shows a BMI calculator. You can change all the labels and it is totally free.
 Author: Salabert + Ebert
-Version: 1.1
+Version: 1.2
 Author URI: http://biombodigital.com
 
   Copyright 2014 Michelle Salabert (michelle@biombodigital.com)
@@ -26,16 +26,8 @@ Author URI: http://biombodigital.com
 
 */
 
-  add_action('widgets_init', 'bodycalculator_register_widgets');
-
-  function bodycalculator_register_widgets() {
-    register_widget('BodyMass');
-  }
-
   // Register style sheet.
   add_action('wp_enqueue_scripts', 'bodycalculator_register_plugin_styles');
-
-  //Register style sheet.
   function bodycalculator_register_plugin_styles() {
     wp_register_style('wp-body-mass-widget', plugins_url('/wp-body-mass-widget/css/wp-body-mass-widget.css'));
     wp_enqueue_style('wp-body-mass-widget');
@@ -44,9 +36,9 @@ Author URI: http://biombodigital.com
   // Body Mass Widget Class.
   class BodyMass extends WP_Widget {
 
-    function BodyMass() {
-      $widget_ops = array('description' => 'A BMI calculator widget by michellesalabert.com');
+    function __construct() {
       $title ='Body Mass Calculator';
+      $widget_ops = array('description' => 'A BMI calculator widget by michellesalabert.com');
       parent::__construct(false, $title, $widget_ops);
     }
 
@@ -54,7 +46,6 @@ Author URI: http://biombodigital.com
     function widget($args, $instance) {
       extract($args);
 
-      $title     = apply_filters('widget_title', $instance['title']);
       $border    = $instance['border'];
       $calculate = $instance['calculate'];
       $yourbm    = $instance['yourbm'];
@@ -71,7 +62,12 @@ Author URI: http://biombodigital.com
       $bmikat8   = $instance ['bmikat8'];
       $reset     = $instance['reset'];
 
-      echo $before_widget; ?>
+      echo $before_widget;
+      if (!empty($instance['title'])) {
+        $title = apply_filters('widget_title', $instance['title'], $instance);
+        echo $before_title . $title . $after_title;
+      }
+      ?>
 
       <style type="text/css">
         #calculate_bodymass {
@@ -81,7 +77,6 @@ Author URI: http://biombodigital.com
 
       <!--Calculate table -->
       <div id="calculate_bodymass">
-        <h2><?php echo $title; ?></h2>
         <table>
           <tr><td><label for="weight"><?php echo $weight; ?>:</label></td><td><input type="text" name="weight" id="weight" /><span>kg</span></td></tr>
           <tr><td><label for="height"><?php echo $height; ?>:</label></td><td><input type="text" name="height" id="height" /><span>cm</span></td></tr>
@@ -163,10 +158,10 @@ Author URI: http://biombodigital.com
     function form($instance) {
 
       $defaults = array(
-        'title'     => 'Body Mass Calculater',
+        'title'     => 'Body Mass Calculator',
         'calculate' => 'Calculate',
         'reset'     => 'Reset',
-        'yourbm'    => 'Your BMI is = ',
+        'yourbm'    => 'Your BMI:',
         'bmikat1'   => 'Very severely underweight',
         'bmikat2'   => 'Severely underweight',
         'bmikat3'   => 'Underweight',
@@ -183,7 +178,7 @@ Author URI: http://biombodigital.com
       $instance = wp_parse_args((array) $instance, $defaults); ?>
 
       <p>
-        <label for="<?php echo $this->get_field_id('title'); ?>">Title<br/>
+        <label for="<?php echo $this->get_field_id('title'); ?>">Title:<br/>
           <input id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" value="<?php echo $instance['title']; ?>" class=" " type="text" /></label>
       </p>
 
@@ -248,7 +243,7 @@ Author URI: http://biombodigital.com
       </p>
 
       <p>
-        <label for="<?php echo $this->get_field_id('error'); ?>">Text: Error!</label><br/>
+        <label for="<?php echo $this->get_field_id('error'); ?>">Error!</label><br/>
           <input id="<?php echo $this->get_field_id('error'); ?>" name="<?php echo $this->get_field_name('error'); ?>" value="<?php echo $instance['error']; ?>" class="widefat" type="text" />
       </p>
 
@@ -265,4 +260,6 @@ Author URI: http://biombodigital.com
     <?php
     }  // function form
   }    // class BodyMass
+
+  add_action('widgets_init', create_function('', 'return register_widget("BodyMass");'));
 ?>

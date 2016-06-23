@@ -52,6 +52,10 @@ Nothing here!
 
 == Changelog ==
 
+1.2
+
+* Tidy up
+
 1.1
 
 * Added all BMI categories
