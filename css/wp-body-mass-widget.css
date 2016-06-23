@@ -18,7 +18,7 @@
   width: 100%;
 }
 
-#weight, #height {
+input#weight, input#height {
   width: 73%;
 }
 
