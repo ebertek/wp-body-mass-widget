@@ -48,7 +48,8 @@ Nothing here!
 
 == Screenshots ==
 
-1. The sidebar widget of Body Mass.
+1. Widget settings.
+2. Widget in the sidebar.
 
 == Changelog ==
 
