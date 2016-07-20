@@ -53,6 +53,7 @@ Nothing here!
 
 == Changelog ==
 
+
 = 1.4 =
 * You can add arbitrary HTML code to the widget.
 

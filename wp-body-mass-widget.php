@@ -5,7 +5,7 @@ Plugin URI:        https://github.com/ebertek/wp-body-mass-widget
 GitHub Plugin URI: ebertek/wp-body-mass-widget
 GitHub Branch:     master
 Description:       Adds a widget that shows a BMI calculator.
-Version:           1.4
+Version:           1.4.1
 Author:            ebertek
 Author URI:        https://ebertek.com
 Text Domain:       wp-body-mass-widget
@@ -81,6 +81,11 @@ Domain Path:       /languages
           <input id="wpbmreset" onclick="bodymass_resetform()" type="button" value="<?php _e('Reset', 'wp-body-mass-widget'); ?>" />
         </div>
         <div id="bm_result"></div>
+        <?php
+          if (!empty($instance['ad2'])) {
+            echo do_shortcode($instance['ad2']);
+          }
+        ?>
       </div>
 
       <script type="text/javascript">
@@ -130,6 +135,7 @@ Domain Path:       /languages
       $instance = $old_instance;
       $instance['title'] = strip_tags($new_instance['title']);
       $instance['ad']    = $new_instance['ad'];
+      $instance['ad2']   = $new_instance['ad2'];
       return $instance;
     }
 
@@ -146,8 +152,12 @@ Domain Path:       /languages
           <input id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" value="<?php echo $instance['title']; ?>" class=" " type="text" /></label>
       </p>
       <p>
-        <label for="<?php echo $this->get_field_id('ad'); ?>"><?php _e('Code:', 'wp-body-mass-widget'); ?><br/>
+        <label for="<?php echo $this->get_field_id('ad'); ?>"><?php _e('Top HTML:', 'wp-body-mass-widget'); ?><br/>
           <textarea id="<?php echo $this->get_field_id('ad'); ?>" name="<?php echo $this->get_field_name('ad'); ?>" class="widefat"><?php if (!empty($instance['ad'])) echo $instance['ad']; ?></textarea></label>
+      </p>
+      <p>
+        <label for="<?php echo $this->get_field_id('ad2'); ?>"><?php _e('Bottom HTML:', 'wp-body-mass-widget'); ?><br/>
+          <textarea id="<?php echo $this->get_field_id('ad2'); ?>" name="<?php echo $this->get_field_name('ad2'); ?>" class="widefat"><?php if (!empty($instance['ad2'])) echo $instance['ad2']; ?></textarea></label>
       </p>
 
     <?php

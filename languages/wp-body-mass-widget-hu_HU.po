@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: wp-body-mass-widget\n"
-"POT-Creation-Date: 2016-07-20 13:21+0200\n"
-"PO-Revision-Date: 2016-07-20 13:21+0200\n"
+"POT-Creation-Date: 2016-07-20 16:37+0200\n"
+"PO-Revision-Date: 2016-07-20 16:40+0200\n"
 "Last-Translator: \n"
 "Language-Team: @ebertek <ebertek@gmail.com>\n"
 "Language: hu\n"
@@ -32,50 +32,57 @@ msgstr "Számolás"
 msgid "Reset"
 msgstr "Visszaállítás"
 
-#: wp-body-mass-widget.php:94
+#: wp-body-mass-widget.php:99
 msgid "Very severely underweight"
 msgstr "Súlyos soványság"
 
-#: wp-body-mass-widget.php:96
+#: wp-body-mass-widget.php:101
 msgid "Severely underweight"
 msgstr "Mérsékelt soványság"
 
-#: wp-body-mass-widget.php:98
+#: wp-body-mass-widget.php:103
 msgid "Underweight"
 msgstr "Enyhe soványság"
 
-#: wp-body-mass-widget.php:100
+#: wp-body-mass-widget.php:105
 msgid "Normal (healthy weight)"
 msgstr "Normális testsúly"
 
-#: wp-body-mass-widget.php:102
+#: wp-body-mass-widget.php:107
 msgid "Overweight"
 msgstr "Túlsúlyos"
 
-#: wp-body-mass-widget.php:104
+#: wp-body-mass-widget.php:109
 msgid "Obese Class I (Moderately obese)"
 msgstr "I. fokú elhízás"
 
-#: wp-body-mass-widget.php:106
+#: wp-body-mass-widget.php:111
 msgid "Obese Class II (Severely obese)"
 msgstr "II. fokú elhízás"
 
-#: wp-body-mass-widget.php:108
+#: wp-body-mass-widget.php:113
 msgid "Obese Class III (Very severely obese)"
 msgstr "III. fokú (súlyos) elhízás"
 
-#: wp-body-mass-widget.php:111
+#: wp-body-mass-widget.php:116
 msgid "Your BMI:"
 msgstr "A te BMI-d:"
 
-#: wp-body-mass-widget.php:113
+#: wp-body-mass-widget.php:118
 msgid "Please enter valid information!"
 msgstr "Hibás adat!"
 
-#: wp-body-mass-widget.php:145
+#: wp-body-mass-widget.php:151
 msgid "Title:"
 msgstr "Cím:"
 
-#: wp-body-mass-widget.php:149
-msgid "Code:"
-msgstr "Kód:"
+#: wp-body-mass-widget.php:155
+msgid "Top HTML:"
+msgstr "Fenti HTML:"
+
+#: wp-body-mass-widget.php:159
+msgid "Bottom HTML:"
+msgstr "Lenti HTML:"
+
+#~ msgid "Code:"
+#~ msgstr "Kód:"
