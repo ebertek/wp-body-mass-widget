@@ -4,7 +4,7 @@ Donate link: https://ebertek.com/
 Tags: body mass index widget, bmi widget, bmi calculator, ideal weight, health widget
 Requires at least: 3.6
 Tested up to: 4.5.3
-Stable tag: trunk
+Stable tag: master
 License: gpl-3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.txt
 
