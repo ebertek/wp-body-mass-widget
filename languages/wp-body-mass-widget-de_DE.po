@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-06-23 18:38+0200\n"
-"PO-Revision-Date: 2016-06-23 19:52+0200\n"
+"POT-Creation-Date: 2016-07-20 13:21+0200\n"
+"PO-Revision-Date: 2016-07-20 13:22+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -13,62 +13,66 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: wp-body-mass-widget.php:66
+#: wp-body-mass-widget.php:76
 msgid "Weight"
 msgstr "Körpergewicht"
 
-#: wp-body-mass-widget.php:67
+#: wp-body-mass-widget.php:77
 msgid "Height"
 msgstr "Körpergröße"
 
-#: wp-body-mass-widget.php:70
+#: wp-body-mass-widget.php:80
 msgid "Calculate"
 msgstr ""
 
-#: wp-body-mass-widget.php:71
+#: wp-body-mass-widget.php:81
 msgid "Reset"
 msgstr ""
 
-#: wp-body-mass-widget.php:84
+#: wp-body-mass-widget.php:94
 msgid "Very severely underweight"
 msgstr "starkes Untergewicht"
 
-#: wp-body-mass-widget.php:86
+#: wp-body-mass-widget.php:96
 msgid "Severely underweight"
 msgstr "mäßiges Untergewicht"
 
-#: wp-body-mass-widget.php:88
+#: wp-body-mass-widget.php:98
 msgid "Underweight"
 msgstr "leichtes Untergewicht"
 
-#: wp-body-mass-widget.php:90
+#: wp-body-mass-widget.php:100
 msgid "Normal (healthy weight)"
 msgstr "Normalgewicht"
 
-#: wp-body-mass-widget.php:92
+#: wp-body-mass-widget.php:102
 msgid "Overweight"
 msgstr "Präadipositas"
 
-#: wp-body-mass-widget.php:94
+#: wp-body-mass-widget.php:104
 msgid "Obese Class I (Moderately obese)"
 msgstr "Adipositas Grad I"
 
-#: wp-body-mass-widget.php:96
+#: wp-body-mass-widget.php:106
 msgid "Obese Class II (Severely obese)"
 msgstr "Adipositas Grad II"
 
-#: wp-body-mass-widget.php:98
+#: wp-body-mass-widget.php:108
 msgid "Obese Class III (Very severely obese)"
 msgstr "Adipositas Grad III"
 
-#: wp-body-mass-widget.php:101
+#: wp-body-mass-widget.php:111
 msgid "Your BMI:"
 msgstr ""
 
-#: wp-body-mass-widget.php:103
+#: wp-body-mass-widget.php:113
 msgid "Please enter valid information!"
 msgstr ""
 
-#: wp-body-mass-widget.php:134
+#: wp-body-mass-widget.php:145
 msgid "Title:"
+msgstr ""
+
+#: wp-body-mass-widget.php:149
+msgid "Code:"
 msgstr ""

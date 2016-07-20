@@ -1,9 +1,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: wp-body-mass-widget\n"
-"POT-Creation-Date: 2016-06-23 18:38+0200\n"
-"PO-Revision-Date: 2016-06-23 20:01+0200\n"
+"POT-Creation-Date: 2016-07-20 13:22+0200\n"
+"PO-Revision-Date: 2016-07-20 13:22+0200\n"
+"Last-Translator: \n"
 "Language-Team: @ebertek <ebertek@gmail.com>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,66 +14,68 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n;_x;_ex;_nx\n"
-"Last-Translator: \n"
-"Language: es\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: wp-body-mass-widget.php:66
+#: wp-body-mass-widget.php:76
 msgid "Weight"
 msgstr "Masa"
 
-#: wp-body-mass-widget.php:67
+#: wp-body-mass-widget.php:77
 msgid "Height"
 msgstr "Estatura"
 
-#: wp-body-mass-widget.php:70
+#: wp-body-mass-widget.php:80
 msgid "Calculate"
 msgstr "Calculo"
 
-#: wp-body-mass-widget.php:71
+#: wp-body-mass-widget.php:81
 msgid "Reset"
 msgstr ""
 
-#: wp-body-mass-widget.php:84
+#: wp-body-mass-widget.php:94
 msgid "Very severely underweight"
 msgstr "Delgadez severa"
 
-#: wp-body-mass-widget.php:86
+#: wp-body-mass-widget.php:96
 msgid "Severely underweight"
 msgstr "Delgadez moderada"
 
-#: wp-body-mass-widget.php:88
+#: wp-body-mass-widget.php:98
 msgid "Underweight"
 msgstr "Delgadez leve"
 
-#: wp-body-mass-widget.php:90
+#: wp-body-mass-widget.php:100
 msgid "Normal (healthy weight)"
 msgstr "Normal"
 
-#: wp-body-mass-widget.php:92
+#: wp-body-mass-widget.php:102
 msgid "Overweight"
 msgstr "Preobeso"
 
-#: wp-body-mass-widget.php:94
+#: wp-body-mass-widget.php:104
 msgid "Obese Class I (Moderately obese)"
 msgstr "Obesidad leve"
 
-#: wp-body-mass-widget.php:96
+#: wp-body-mass-widget.php:106
 msgid "Obese Class II (Severely obese)"
 msgstr "Obesidad media"
 
-#: wp-body-mass-widget.php:98
+#: wp-body-mass-widget.php:108
 msgid "Obese Class III (Very severely obese)"
 msgstr "Obesidad mórbida"
 
-#: wp-body-mass-widget.php:101
+#: wp-body-mass-widget.php:111
 msgid "Your BMI:"
 msgstr "Su IMC:"
 
-#: wp-body-mass-widget.php:103
+#: wp-body-mass-widget.php:113
 msgid "Please enter valid information!"
 msgstr ""
 
-#: wp-body-mass-widget.php:134
+#: wp-body-mass-widget.php:145
 msgid "Title:"
+msgstr ""
+
+#: wp-body-mass-widget.php:149
+msgid "Code:"
 msgstr ""

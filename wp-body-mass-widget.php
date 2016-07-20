@@ -5,14 +5,14 @@ Plugin URI:        https://github.com/ebertek/wp-body-mass-widget
 GitHub Plugin URI: ebertek/wp-body-mass-widget
 GitHub Branch:     master
 Description:       Adds a widget that shows a BMI calculator.
-Version:           1.3
+Version:           1.4
 Author:            ebertek
 Author URI:        https://ebertek.com
 Text Domain:       wp-body-mass-widget
 Domain Path:       /languages
 
   Original work Copyright 2014 Michelle Salabert (michelle@biombodigital.com)
-  Modified work Copyright 2016 @ebertek
+  Modified work Copyright 2016 David Ebert (ebertek@gmail.com)
   
   This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -49,7 +49,7 @@ Domain Path:       /languages
   class BodyMass extends WP_Widget {
 
     function __construct() {
-      $title ='Body Mass Calculator';
+      $title = 'Body Mass Calculator';
       $widget_ops = array('description' => 'A BMI calculator widget');
       parent::__construct(false, $title, $widget_ops);
     }
@@ -67,6 +67,11 @@ Domain Path:       /languages
 
       <!-- WP BMI Calculator -->
       <div id="calculate_bodymass">
+        <?php
+          if (!empty($instance['ad'])) {
+            echo do_shortcode($instance['ad']);
+          }
+        ?>
         <table>
           <tr><td><label for="weight"><?php _e('Weight', 'wp-body-mass-widget'); ?>:</label></td><td><input type="text" name="weight" id="weight" /><span> kg</span></td></tr>
           <tr><td><label for="height"><?php _e('Height', 'wp-body-mass-widget'); ?>:</label></td><td><input type="text" name="height" id="height" /><span> cm</span></td></tr>
@@ -123,7 +128,8 @@ Domain Path:       /languages
     // Update the options
     function update($new_instance, $old_instance) {
       $instance = $old_instance;
-      $instance['title']     = strip_tags($new_instance['title']);
+      $instance['title'] = strip_tags($new_instance['title']);
+      $instance['ad']    = $new_instance['ad'];
       return $instance;
     }
 
@@ -131,13 +137,17 @@ Domain Path:       /languages
     function form($instance) {
 
       $defaults = array(
-        'title'     => 'Body Mass Calculator',
+        'title' => 'Body Mass Calculator',
       );
       $instance = wp_parse_args((array) $instance, $defaults); ?>
 
       <p>
         <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'wp-body-mass-widget'); ?><br/>
           <input id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" value="<?php echo $instance['title']; ?>" class=" " type="text" /></label>
+      </p>
+      <p>
+        <label for="<?php echo $this->get_field_id('ad'); ?>"><?php _e('Code:', 'wp-body-mass-widget'); ?><br/>
+          <textarea id="<?php echo $this->get_field_id('ad'); ?>" name="<?php echo $this->get_field_name('ad'); ?>" class="widefat"><?php if (!empty($instance['ad'])) echo $instance['ad']; ?></textarea></label>
       </p>
 
     <?php

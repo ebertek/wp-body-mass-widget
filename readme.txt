@@ -19,8 +19,8 @@ And it is totally free!
 
 = Features =
 
-* Option to change all the labels.
-* Option to change border color.
+* You can change all text using the .po files.
+* You can add arbitrary code (e.g. for ads) to the widget.
 
 = Contribute =
 If you find any bug using this plugin, please submit an issue through [ebertek's GitHub](https://github.com/ebertek/wp-body-mass-widget) (preferably with a pull request).
@@ -51,6 +51,9 @@ Nothing here!
 1. The sidebar widget of Body Mass.
 
 == Changelog ==
+
+= 1.4 =
+* You can add arbitrary HTML code to the widget.
 
 = 1.3 =
 * i18n
