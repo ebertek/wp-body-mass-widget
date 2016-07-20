@@ -76,9 +76,9 @@ Domain Path:       /languages
           <tr><td><label for="weight"><?php _e('Weight', 'wp-body-mass-widget'); ?>:</label></td><td><input type="text" name="weight" id="weight" /><span> kg</span></td></tr>
           <tr><td><label for="height"><?php _e('Height', 'wp-body-mass-widget'); ?>:</label></td><td><input type="text" name="height" id="height" /><span> cm</span></td></tr>
         </table>
-        <div style="margin: 0 auto; width: 200px;">
-          <input id="submit" onclick="bodymass_calculate()" type="button" value="<?php _e('Calculate', 'wp-body-mass-widget'); ?>" />
-          <input id="reset" onclick="resetform()" type="button" value="<?php _e('Reset', 'wp-body-mass-widget'); ?>" />
+        <div id="wpbmbtn">
+          <input id="wpbmsubmit" onclick="bodymass_calculate()" type="button" value="<?php _e('Calculate', 'wp-body-mass-widget'); ?>" />
+          <input id="wpbmreset" onclick="bodymass_resetform()" type="button" value="<?php _e('Reset', 'wp-body-mass-widget'); ?>" />
         </div>
         <div id="bm_result"></div>
       </div>
@@ -114,7 +114,7 @@ Domain Path:       /languages
           }
         }
 
-        function resetform() {
+        function bodymass_resetform() {
           document.getElementById('weight').value='';
           document.getElementById('height').value='';
           bm_result.innerHTML = '<p>';

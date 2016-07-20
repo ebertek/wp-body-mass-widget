@@ -32,12 +32,16 @@ input#weight, input#height {
 }
 
 /* Calculate and Submit */
-#reset, #submit {
+#wpbmbtn {
+  margin: 0 auto;
   text-align: center;
-  width: 94px;
+}
+#wpbmreset, #wpbmsubmit {
+  text-align: center;
+  min-width: 94px;
 }
 
-#reset, #submit: hover {
+#wpbmreset, #wpbmsubmit: hover {
   opacity: 3;
 }
 
